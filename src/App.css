@@ -211,11 +211,10 @@ input {
 
 /* Sidebar Styles */
 aside {
-  width: 250px; /* Fixed width for the sidebar */
-  background-color: #046380;
+  background-color: #046380; /* Sidebar background */
   color: white;
-  height: 100%; /* Full height for the sidebar */
-  position: fixed; /* Ensures the sidebar stays in place */
+  height: 100%;
+  position: fixed;
   top: 0;
   left: 0;
   display: flex;
@@ -223,17 +222,16 @@ aside {
   align-items: flex-start;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure sidebar is above other elements */
+  z-index: 1000;
+  transform: translateX(0); /* Default visible */
+  transition: transform 0.3s ease; /* Smooth transition */
 }
 
-aside .toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-  width: 100%;
+aside.hidden {
+  transform: translateX(-100%); /* Hides the sidebar */
 }
 
+/* Logo Section */
 aside .toggle .logo {
   display: flex;
   gap: 0.5rem;
@@ -241,87 +239,112 @@ aside .toggle .logo {
 }
 
 aside .toggle .logo img {
-  width: 2rem;
-  height: 2rem;
+  width: 4rem; /* Reduced logo size for balance */
+  height: 4rem;
 }
 
-aside .sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
+aside .toggle h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
 }
 
-aside .sidebar a {
+/* Close Sidebar Button */
+.close-sidebar {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1100;
+  transition: color 0.3s ease;
+}
+
+.close-sidebar:hover {
+  color: #f1c40f; /* Highlight effect on hover */
+}
+
+/* Sidebar Links */
+.sidebar a {
   display: flex;
   align-items: center;
+  gap: 10px; /* Space between icon and text */
   color: #bdc3c7;
   text-decoration: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
   transition: all 0.3s ease;
   font-size: 1rem;
   width: 90%;
 }
 
-aside .sidebar a .icon {
-  margin-right: 8px;
-  font-size: 1.25rem;
+.sidebar a .icon {
+  font-size: 1.5rem; /* Larger icon for emphasis */
+  transition: transform 0.3s ease;
 }
 
-aside .sidebar a:hover {
-  background-color: #2c3e50;
+.sidebar a:hover {
+  background-color: #2c3e50; /* Hover background */
   color: white;
 }
 
-aside .sidebar a.active {
+.sidebar a:hover .icon {
+  transform: scale(1.2); /* Slightly enlarges icon on hover */
+}
+
+.sidebar a.active {
   background-color: #2c3e50;
   color: white;
   font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add slight shadow to active link */
 }
 
-aside .sidebar a:last-child {
-  margin-top: auto; /* Ensures the logout button stays at the bottom */
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  background-color: #046380;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100; /* Above the sidebar */
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.sidebar-toggle:hover {
+  background-color: #024f5a;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  body {
-    flex-direction: column;
+  aside {
+    transform: translateX(-100%); /* Hidden by default */
   }
 
-  aside {
-    width: 100%; /* Sidebar spans full width on small screens */
-    height: auto;
-    position: relative;
+  aside.hidden {
+    transform: translateX(-100%);
   }
 
   main {
-    margin-left: 0; /* Remove left margin for the main content */
+    margin-left: 0;
     padding: 20px;
   }
 
-  aside .sidebar {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  aside .sidebar a {
-    flex: 1 1 45%;
-    text-align: center;
+  .sidebar a {
+    gap: 5px; /* Reduced spacing on smaller screens */
+    font-size: 0.9rem;
+    padding: 10px;
   }
 }
+
+
 
 main .analyse {
   display: flex;
@@ -337,9 +360,10 @@ main {
   padding: 40px;
   overflow-y: auto; /* Allows scrolling within the main content */
   height: 100vh; /* Ensures content fills viewport height */
-  box-sizing: border-box; /* Includes padding in width and height calculations */
+  margin-left: 230px; /* Adjust for sidebar */
+  background-color: #f4f6f9; /* Matches the overall background */
+  box-sizing: border-box; /* Ensures padding is included in the width */
 }
-
 main .analyse .card {
   flex: 1;
   padding: 20px;
@@ -376,15 +400,6 @@ main .analyse .card.primary .percentage {
   color: #3498db;
 }
 
-/* Main Layout */
-main {
-  margin-left: 100px; /* Adjust for sidebar */
-  padding: 40px;
-  background-color: #f4f6f9; /* Matches the overall background */
-  overflow-y: auto; /* Allows scrolling within the dashboard */
-  height: 100vh;
-  box-sizing: border-box; /* Ensures padding is included in the width */
-}
 
 /* Analytics Section */
 .analyse {
@@ -883,16 +898,6 @@ main {
     gap: 15px;
   }
 }
-
-/* Settings & Help Page Styles */
-/*.settings-help-container {
-  padding: 40px;
-  margin-left: 250px; 
-  overflow-y: auto;
-  height: 100vh;
-  background-color: #f4f6f9;
-  box-sizing: border-box;
-}*/
 
 .page-title {
   font-size: 2rem;

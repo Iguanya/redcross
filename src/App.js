@@ -12,14 +12,12 @@ const App = () => (
   <Router>
     <div className="container">
       <Sidebar />
-      <main>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/emergency-management" element={<EmergencyManagement />} />
           <Route path="/people-and-centers" element={<PeopleAndCenters />} />
           <Route path="/settings" element={<SettingsAndHelp />} />
         </Routes>
-      </main>
     </div>
   </Router>
 );

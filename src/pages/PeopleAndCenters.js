@@ -17,7 +17,7 @@ const PeopleAndCenters = () => {
   };
 
   return (
-    <main className="people-centers-container">
+    <main>
       <h1 className="page-title">People & Centers</h1>
       <p className="page-description">
         Manage registered volunteers, track their status, assign them to emergencies, and monitor center preparedness.

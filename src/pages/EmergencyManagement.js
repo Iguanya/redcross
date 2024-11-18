@@ -2,7 +2,7 @@
 import React from 'react';
 
 const EmergencyManagement = () => (
-  <main className="emergency-management-container">
+  <main>
     <h1 className="page-title">Emergency Management</h1>
     <p className="page-description">
       Track and manage emergency alerts, view locations on the map, create incident reports, and allocate resources.
