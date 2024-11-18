@@ -1,38 +1,999 @@
-.App {
-  text-align: center;
+
+/* Dashboard Page Styles */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dashboard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 40px;
+}
+
+h1 {
+  color: #2c3e50;
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+p {
+  color: #7f8c8d;
+  font-size: 1.1em;
+  margin-bottom: 40px;
+}
+.container {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-container {
+  width: 350px;
+  margin: 100px auto;
+  padding: 25px;
+  border: 1px solid #dfe6e9;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #b0bec5;
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.login-button:hover {
+  background-color: #3498db;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+
+/* Overview Cards */
+.overview-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+
+/* Recent Emergencies Table */
+.emergency-table {
+  margin-top: 40px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.emergency-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.emergency-table th, .emergency-table td {
+  padding: 15px 20px;
+  text-align: left;
+}
+
+.emergency-table th {
+  background-color: #2980b9;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.emergency-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.emergency-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.emergency-table td {
+  font-size: 1em;
+  color: #333;
+}
+
+/* Preparedness Score */
+.preparedness-score {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.preparedness-score h2 {
+  font-size: 1.75em;
+  color: #e74c3c;
+  font-weight: 700;
+  margin: 0;
+}
+
+.preparedness-score p {
+  font-size: 1.1em;
+  color: #7f8c8d;
+}
+
+.preparedness-score button {
+  padding: 10px 20px;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #2980b9;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.preparedness-score button:hover {
+  background-color: #3498db;
+}
+
+/* Action Button Styles */
+.action-button {
+  background-color: #2980b9;
+  color: #ffffff;
+  padding: 12px 24px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  display: inline-block;
+  text-align: center;
+}
+
+.action-button:hover {
+  background-color: #3498db;
+}
+
+/* Sidebar Styles */
+aside {
+  width: 250px; /* Fixed width for the sidebar */
+  background-color: #046380;
+  color: white;
+  height: 100%; /* Full height for the sidebar */
+  position: fixed; /* Ensures the sidebar stays in place */
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Ensure sidebar is above other elements */
+}
+
+aside .toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+aside .toggle .logo {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+aside .toggle .logo img {
+  width: 2rem;
+  height: 2rem;
+}
+
+aside .sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+aside .sidebar a {
+  display: flex;
+  align-items: center;
+  color: #bdc3c7;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  width: 90%;
+}
+
+aside .sidebar a .icon {
+  margin-right: 8px;
+  font-size: 1.25rem;
+}
+
+aside .sidebar a:hover {
+  background-color: #2c3e50;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+aside .sidebar a.active {
+  background-color: #2c3e50;
+  color: white;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+aside .sidebar a:last-child {
+  margin-top: auto; /* Ensures the logout button stays at the bottom */
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  aside {
+    width: 100%; /* Sidebar spans full width on small screens */
+    height: auto;
+    position: relative;
+  }
+
+  main {
+    margin-left: 0; /* Remove left margin for the main content */
+    padding: 20px;
+  }
+
+  aside .sidebar {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  aside .sidebar a {
+    flex: 1 1 45%;
+    text-align: center;
+  }
+}
+
+main .analyse {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+/* Main Content Styles */
+main {
+  flex: 1; /* Expands to take up remaining horizontal space */
+  padding: 40px;
+  overflow-y: auto; /* Allows scrolling within the main content */
+  height: 100vh; /* Ensures content fills viewport height */
+  box-sizing: border-box; /* Includes padding in width and height calculations */
+}
+
+main .analyse .card {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+main .analyse .card h3 {
+  font-size: 1.25rem;
+  color: #34495e;
+}
+
+main .analyse .card .value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+main .analyse .card .percentage {
+  font-size: 1rem;
+}
+
+main .analyse .card.success .percentage {
+  color: #27ae60;
+}
+
+main .analyse .card.danger .percentage {
+  color: #e74c3c;
+}
+
+main .analyse .card.primary .percentage {
+  color: #3498db;
+}
+
+/* Main Layout */
+main {
+  margin-left: 100px; /* Adjust for sidebar */
+  padding: 40px;
+  background-color: #f4f6f9; /* Matches the overall background */
+  overflow-y: auto; /* Allows scrolling within the dashboard */
+  height: 100vh;
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+/* Analytics Section */
+.analyse {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures cards wrap on smaller screens */
+  gap: 20px; /* Spacing between cards */
+}
+
+.analyse .card {
+  flex: 1;
+  min-width: 20px;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.analyse .card h3 {
+  font-size: 1.25rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.analyse .card .value {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.analyse .card .percentage {
+  font-size: 1rem;
+}
+
+.analyse .card.success .percentage {
+  color: #27ae60;
+}
+
+.analyse .card.danger .percentage {
+  color: #e74c3c;
+}
+
+.analyse .card.primary .percentage {
+  color: #3498db;
+}
+
+/* New Users Section */
+.new-users {
+  margin-top: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.new-users h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.user-list {
+  display: flex;
+  flex-wrap: wrap; /* Wraps cards on smaller screens */
+  gap: 15px;
+}
+
+.user-card {
+  flex: 1;
+  min-width: 150px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+}
+
+.user-card h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.user-card p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+/* Recent Orders Section */
+.recent-orders {
+  margin-top: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.recent-orders h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.recent-orders .btn-link {
+  margin-top: 20px;
+  color: #2980b9;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.recent-orders .btn-link:hover {
+  background-color: #ecf0f1;
+}
+
+/* Reminders Section */
+.reminders {
+  margin-top: 40px;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.reminders .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.reminders h2 {
+  font-size: 1.5rem;
+  color: #2c3e50;
+}
+
+.reminder {
+  margin-bottom: 10px;
+  padding: 15px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.reminder h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.reminder p {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.add-reminder {
+  padding: 10px;
+  margin-top: 15px;
+  text-align: center;
+  color: #2980b9;
+  cursor: pointer;
+  border: 1px dashed #2980b9;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.add-reminder:hover {
+  background-color: #ecf0f1;
+}
+
+/* Button Styles */
+.btn-link {
+  background-color: #2980b9;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-link:hover {
+  background-color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analyse {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .user-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
+}
+
+/* People & Centers Page Styles */
+.people-centers-container {
+  padding: 40px;
+  margin-left: 100px; /* Space for the sidebar */
+  overflow-y: auto;
+  height: 100vh;
+  background-color: #f4f6f9; /* Matches the overall background color */
+  box-sizing: border-box; /* Ensures padding is included in the width */
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 30px;
+}
+
+.add-volunteer-btn {
+  margin-bottom: 30px;
+  display: inline-block;
+  background-color: #2980b9;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-volunteer-btn:hover {
+  background-color: #3498db;
+}
+
+/* Section Styles */
+.volunteers-section,
+.centers-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+/* Volunteer and Center Cards */
+.volunteer-list,
+.center-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+  gap: 20px;
+}
+
+.volunteer-card,
+.center-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.volunteer-card:hover,
+.center-card:hover {
+  transform: translateY(-5px); /* Subtle hover effect */
+  transition: transform 0.3s ease;
+}
+
+.volunteer-name,
+.center-name {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.volunteer-role,
+.volunteer-status,
+.center-location,
+.center-status {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+.status {
+  font-weight: bold;
+}
+
+.status.active {
+  color: #27ae60;
+}
+
+.status.on-leave {
+  color: #e74c3c;
+}
+
+.status.prepared {
+  color: #27ae60;
+}
+
+.status.partially-prepared {
+  color: #f39c12;
+}
+
+
+/* Emergency Management Page Styles */
+.emergency-management-container {
+  padding: 40px;
+  margin-left: 100px; /* Space for sidebar */
+  overflow-y: auto;
+  height: 100vh;
+  background-color: #f4f6f9; /* Matches overall dashboard background */
+  box-sizing: border-box; /* Ensures padding is included in width */
+}
+
+.page-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+/* Emergency Section Layout */
+.emergency-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px; /* Spacing between cards */
+}
+
+/* Card Styles */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* Alerts Section */
+.alerts {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.alert {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alert-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.alert-severity {
+  font-size: 0.9rem;
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.btn {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3498db;
+}
+
+/* Incident Reports Section */
+.report-list {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.report {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.report-time {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.add-report-btn {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  font-size: 1rem;
+}
+
+/* Resource Section */
+.resources {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.resource {
+  background-color: #ecf0f1;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.resource-title {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.resource-status {
+  font-size: 0.9rem;
+  color: #27ae60;
+}
+
+/* Button Styles */
+.btn {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3498db;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .emergency-section {
+    grid-template-columns: 1fr; /* Stacks cards on smaller screens */
+    gap: 15px;
+  }
+}
+
+/* Settings & Help Page Styles */
+/*.settings-help-container {
+  padding: 40px;
+  margin-left: 250px; 
+  overflow-y: auto;
+  height: 100vh;
+  background-color: #f4f6f9;
+  box-sizing: border-box;
+}*/
+
+.page-title {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.page-description {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  margin-bottom: 40px;
+}
+
+/* User Roles Section */
+.user-roles-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 20px;
+}
+
+.roles-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive layout */
+  gap: 20px;
+}
+
+.role-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.role-title {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.role-description {
+  font-size: 1rem;
+  color: #7f8c8d;
+}
+
+/* FAQ Section */
+.faq-section {
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  margin-bottom: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+  font-size: 1.25rem;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.faq-answer {
+  font-size: 1rem;
+  color: #7f8c8d;
+  margin-bottom: 10px;
+}
+
+.faq-answer a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.faq-answer a:hover {
+  text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #3498db;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .roles-list {
+    grid-template-columns: 1fr; /* Stacks roles on smaller screens */
   }
 }
