@@ -43,13 +43,6 @@ const SidebarLayout = () => {
           <a href="/logout"><span className="icon">🔒</span> Logout</a>
         </div>
       </aside>
-
-      {/* Main Content */}
-      <main className={isSidebarVisible ? "main-content with-sidebar" : "main-content full-width"}>
-        <h1>Welcome to D-Rescue</h1>
-        <p>Manage and monitor your emergency response system effectively.</p>
-        {/* Additional main content */}
-      </main>
     </>
   );
 };
