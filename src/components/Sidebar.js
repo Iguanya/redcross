@@ -19,8 +19,7 @@ const SidebarLayout = () => {
       >
         ☰
       </button>
-
-      {/* Sidebar */}
+      
       <aside className={isSidebarVisible ? "sidebar" : "sidebar hidden"}>
         <div className="toggle">
           <div className="logo">

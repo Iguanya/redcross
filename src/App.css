@@ -303,21 +303,6 @@ aside .toggle h2 {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Add slight shadow to active link */
 }
 
-/* Sidebar Toggle Button */
-.sidebar-toggle {
-  background-color: #046380;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1.5rem;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100; /* Above the sidebar */
-  cursor: pointer;
-  border-radius: 5px;
-}
-
 .sidebar-toggle:hover {
   background-color: #024f5a;
 }
@@ -341,6 +326,21 @@ aside .toggle h2 {
     gap: 5px; /* Reduced spacing on smaller screens */
     font-size: 0.9rem;
     padding: 10px;
+  }
+
+  /* Sidebar Toggle Button */
+  .sidebar-toggle {
+    background-color: #046380;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100; /* Above the sidebar */
+    cursor: pointer;
+    border-radius: 5px;
   }
 }
 
