@@ -9,7 +9,7 @@ const Header = () => (
       <div className="profile">
         <p>Hey, <b>Admin</b></p>
         <div className="profile-photo">
-          <img src="profile.jpg" alt="Profile" />
+          <img src="https://picsum.photos/id/870/40/50?grayscale&blur=2" alt="Profile" />
         </div>
       </div>
     </div>
