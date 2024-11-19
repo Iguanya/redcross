@@ -11,24 +11,25 @@ const Sidebar = () => {
   return (
     <>
 
+          {/* Sidebar Toggle Button */}
+      <button
+        className="sidebar-toggle"
+        onClick={toggleSidebar}
+        aria-label="Toggle Sidebar"
+      >
+        ☰
+      </button>
+
       {/* Sidebar */}
       <aside
         className={`sidebar ${isSidebarVisible ? "visible" : "hidden"}`}
         aria-hidden={!isSidebarVisible}
       >
         <div className="toggle">
-      <div className="logo">
-        <img src="logo2.png" alt="D-Rescue Logo" className="logo-img" />
-        <h2 className="logo-text">D-Rescue</h2>
-      </div>
-
-          <button
-            className="close-sidebar"
-            onClick={toggleSidebar}
-            aria-label="Close Sidebar"
-          >
-            ✖
-          </button>
+        <div className="logo">
+          <img src="logo2.png" alt="D-Rescue Logo" className="logo-img" />
+          <h2 className="logo-text">D-Rescue</h2>
+        </div>
         </div>
         <div className="sidebar-links">
           <Link to="/" className="active">

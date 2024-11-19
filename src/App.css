@@ -232,25 +232,6 @@ aside.visible {
   transform: translateX(0); /* Show sidebar */
 }
 
-/* Sidebar Toggle Button */
-.sidebar-toggle {
-  background-color: #046380;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 1.5rem;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1100; /* Above the sidebar */
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.sidebar-toggle:hover {
-  background-color: #024f5a;
-}
-
 /* Mobile Navigation Bar */
 .mobile-navbar {
   display: none; /* Hidden by default */
@@ -311,11 +292,6 @@ aside.visible {
   margin: 0; /* Remove default margins */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-
-}
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -331,7 +307,26 @@ aside.visible {
     display: flex; /* Show mobile navbar */
   }
 
-    .logo {
+    /* Sidebar Toggle Button */
+  .sidebar-toggle {
+    background-color: #046380;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100; /* Above the sidebar */
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .sidebar-toggle:hover {
+    background-color: #024f5a;
+  }
+
+  .logo {
     justify-content: center; /* Center the logo on smaller screens */
   }
 
