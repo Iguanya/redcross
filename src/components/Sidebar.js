@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-
-const SidebarLayout = () => {
-  const [isSidebarVisible, setIsSidebarVisible] = useState(true);
+const Sidebar = () => {
+  const [isSidebarVisible, setIsSidebarVisible] = useState(false);
 
   const toggleSidebar = () => {
     setIsSidebarVisible(!isSidebarVisible);
@@ -11,21 +10,18 @@ const SidebarLayout = () => {
 
   return (
     <>
-      {/* Sidebar Toggle Button */}
-      <button
-        className="sidebar-toggle"
-        onClick={toggleSidebar}
-        aria-label="Toggle Sidebar"
+
+      {/* Sidebar */}
+      <aside
+        className={`sidebar ${isSidebarVisible ? "visible" : "hidden"}`}
+        aria-hidden={!isSidebarVisible}
       >
-        ☰
-      </button>
-      
-      <aside className={isSidebarVisible ? "sidebar" : "sidebar hidden"}>
         <div className="toggle">
-          <div className="logo">
-            <img src="logo2.png" alt="Logo" />
-            <h2>D-Rescue</h2>
-          </div>
+      <div className="logo">
+        <img src="logo2.png" alt="D-Rescue Logo" className="logo-img" />
+        <h2 className="logo-text">D-Rescue</h2>
+      </div>
+
           <button
             className="close-sidebar"
             onClick={toggleSidebar}
@@ -35,15 +31,44 @@ const SidebarLayout = () => {
           </button>
         </div>
         <div className="sidebar-links">
-          <a href="/" className="active"><span className="icon">🏠</span> Dashboard</a>
-          <a href="/emergency-management"><span className="icon">🚨</span> Emergency Management</a>
-          <a href="/people-and-centers"><span className="icon">🏥</span> People & Centers</a>
-          <a href="/settings"><span className="icon">⚙️</span> Settings</a>
-          <a href="/logout"><span className="icon">🔒</span> Logout</a>
+          <Link to="/" className="active">
+            <span className="icon">🏠</span> Dashboard
+          </Link>
+          <Link to="/emergency-management">
+            <span className="icon">🚨</span> Emergency Management
+          </Link>
+          <Link to="/people-and-centers">
+            <span className="icon">🏥</span> People & Centers
+          </Link>
+          <Link to="/settings">
+            <span className="icon">⚙️</span> Settings
+          </Link>
+          <Link to="/login">
+            <span className="icon">🔒</span> Logout
+          </Link>
         </div>
       </aside>
+
+      {/* Top Navbar for Smaller Devices */}
+      <nav className="mobile-navbar">
+        <Link to="/" className="mobile-link">
+          <span className="icon">🏠</span>
+        </Link>
+        <Link to="/emergency-management" className="mobile-link">
+          <span className="icon">🚨</span>
+        </Link>
+        <Link to="/people-and-centers" className="mobile-link">
+          <span className="icon">🏥</span>
+        </Link>
+        <Link to="/settings" className="mobile-link">
+          <span className="icon">⚙️</span>
+        </Link>
+        <Link to="/login" className="mobile-link">
+          <span className="icon">🔒</span>
+        </Link>
+      </nav>
     </>
   );
 };
 
-export default SidebarLayout;
+export default Sidebar;

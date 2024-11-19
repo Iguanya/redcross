@@ -9,6 +9,7 @@ import SettingsAndHelp from './pages/SettingsAndHelp';
 import "./App.css";
 
 const App = () => (
+
   <Router>
     <div className="container">
       <Sidebar />

@@ -211,7 +211,8 @@ input {
 
 /* Sidebar Styles */
 aside {
-  background-color: #046380; /* Sidebar background */
+  width: 230px;
+  background-color: #046380;
   color: white;
   height: 100%;
   position: fixed;
@@ -223,30 +224,125 @@ aside {
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  transform: translateX(0); /* Default visible */
-  transition: transform 0.3s ease; /* Smooth transition */
+  transform: translateX(-100%); /* Hidden by default */
+  transition: transform 0.3s ease;
 }
 
-aside.hidden {
-  transform: translateX(-100%); /* Hides the sidebar */
+aside.visible {
+  transform: translateX(0); /* Show sidebar */
 }
 
-/* Logo Section */
-aside .toggle .logo {
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  background-color: #046380;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1100; /* Above the sidebar */
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.sidebar-toggle:hover {
+  background-color: #024f5a;
+}
+
+/* Mobile Navigation Bar */
+.mobile-navbar {
+  display: none; /* Hidden by default */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #046380;
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-around;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-link {
+  color: #bdc3c7;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 10px;
+  transition: color 0.3s ease;
 }
 
-aside .toggle .logo img {
-  width: 4rem; /* Reduced logo size for balance */
-  height: 4rem;
+.mobile-link:hover {
+  color: #ffffff;
 }
 
-aside .toggle h2 {
+.mobile-link.active {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Logo Container */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem; /* Space below the logo */
+}
+
+/* Logo Image */
+.logo-img {
+  width: 50px; /* Adjust size for larger screens */
+  height: 50px;
+  object-fit: contain; /* Ensure the image maintains its aspect ratio */
+  border-radius: 8px; /* Optional rounded edges */
+}
+
+/* Logo Text */
+.logo-text {
   font-size: 1.5rem;
   font-weight: bold;
   color: white;
+  margin: 0; /* Remove default margins */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  aside {
+    display: none; /* Fully hide sidebar */
+  }
+
+  .mobile-navbar a{
+    transition: all 0.3s ease;
+  }
+
+  .mobile-navbar {
+    display: flex; /* Show mobile navbar */
+  }
+
+    .logo {
+    justify-content: center; /* Center the logo on smaller screens */
+  }
+
+  .logo-img {
+    width: 40px; /* Slightly smaller logo for small devices */
+    height: 40px;
+  }
+
+  .logo-text {
+    font-size: 1.25rem; /* Smaller text for better alignment */
+  }
 }
 
 /* Close Sidebar Button */
