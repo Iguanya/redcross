@@ -30,23 +30,23 @@ const Dashboard = () => (
       <h2 className="section-title">New Users</h2>
       <div className="user-list">
         <div className="user-card">
-          <img src="path/to/jack.jpg" alt="Jack" className="user-image" />
+          <img src="https://picsum.photos/id/237/300/250" alt="Jack" className="user-image" />
           <h3 className="user-name">Jack</h3>
           <p className="user-time">54 Min Ago</p>
         </div>
         <div className="user-card">
-          <img src="path/to/amir.jpg" alt="Amir" className="user-image" />
+          <img src="https://picsum.photos/id/27/50/60" alt="Amir" className="user-image" />
           <h3 className="user-name">Amir</h3>
           <p className="user-time">3 Hours Ago</p>
         </div>
         <div className="user-card">
-          <img src="path/to/ember.jpg" alt="Ember" className="user-image" />
+          <img src="https://picsum.photos/id/37/200/300" alt="Ember" className="user-image" />
           <h3 className="user-name">Ember</h3>
           <p className="user-time">6 Hours Ago</p>
         </div>
         <div className="user-card">
-          <img src="path/to/more.jpg" alt="More" className="user-image" />
-          <h3 className="user-name">More</h3>
+          <img src="https://picsum.photos/id/99/200/300" alt="More" className="user-image" />
+          <h3 className="user-name">Morris</h3>
           <p className="user-time">8 Hours Ago</p>
         </div>
       </div>
