@@ -10,8 +10,7 @@ const Sidebar = () => {
 
   return (
     <>
-
-          {/* Sidebar Toggle Button */}
+      {/* Sidebar Toggle Button */}
       <button
         className="sidebar-toggle"
         onClick={toggleSidebar}
@@ -26,10 +25,10 @@ const Sidebar = () => {
         aria-hidden={!isSidebarVisible}
       >
         <div className="toggle">
-        <div className="logo">
-          <img src="logo2.png" alt="D-Rescue Logo" className="logo-img" />
-          <h2 className="logo-text">D-Rescue</h2>
-        </div>
+          <div className="logo">
+            <img src="logo2.png" alt="D-Rescue Logo" className="logo-img" />
+            <h2 className="logo-text">D-Rescue</h2>
+          </div>
         </div>
         <div className="sidebar-links">
           <Link to="/" className="active">
@@ -40,6 +39,9 @@ const Sidebar = () => {
           </Link>
           <Link to="/people-and-centers">
             <span className="icon">🏥</span> People & Centers
+          </Link>
+          <Link to="/report-incident">
+            <span className="icon">📢</span> Report Incident
           </Link>
           <Link to="/settings">
             <span className="icon">⚙️</span> Settings
@@ -60,6 +62,9 @@ const Sidebar = () => {
         </Link>
         <Link to="/people-and-centers" className="mobile-link">
           <span className="icon">🏥</span>
+        </Link>
+        <Link to="/report-incident" className="mobile-link">
+          <span className="icon">📢</span>
         </Link>
         <Link to="/settings" className="mobile-link">
           <span className="icon">⚙️</span>
